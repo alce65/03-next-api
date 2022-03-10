@@ -5,15 +5,10 @@ import * as api from "../../services/api";
 import { useEffect, useState } from "react";
 import { TaskI } from "../../interfaces/task-i";
 
-export function List() {
-  const [tasks, setTasks] = useState<Array<TaskI>>([]);
+export function List({ tasks: initialTasks }: { tasks: Array<TaskI> }) {
+  const [tasks, setTasks] = useState<Array<TaskI>>(initialTasks);
 
-  useEffect(() => {
-    api.getAllTasks().then(({ data }) => {
-      setTasks(data);
-      console.log(data);
-    });
-  }, []);
+  // useEffect(() => setTasks(initialTasks), [initialTasks]);
 
   const deleteTask = (task: any) => {
     api

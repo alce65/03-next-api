@@ -18,13 +18,5 @@ taskSchema.set('toJSON', {
   },
 });
 
-/* export let Task: mongoose.Model<any>;
-if (mongoose.models[modelName]) {
-  Task = mongoose.model(modelName);
-} else {
-  Task = mongoose.model(modelName, taskSchema);
-}
- */
-
 export const Task =
   mongoose.models[modelName] || mongoose.model(modelName, taskSchema);

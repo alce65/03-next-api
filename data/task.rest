@@ -1,0 +1,33 @@
+GET http://localhost:3000/api/tasks
+
+###
+
+GET http://localhost:3000/api/tasks/62291d19a427a4f75e43a990
+
+###
+
+POST http://localhost:3000/api/tasks
+content-type: application/json
+
+{
+  "title": "Tarea adicional",
+  "responsible": "Luis",
+  "isCompleted": false
+}
+
+###
+
+PATCH http://localhost:3000/api/tasks/6229e3465631a9da70805aa5
+content-type: application/json
+
+{
+  "isCompleted": true
+}
+
+###
+DELETE http://localhost:3000/api/tasks/6229e3465631a9da70805aa5
+
+
+###
+DELETE http://localhost:3000/api/tasks/62
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGVwZSIsImlkIjoiNjIxZTE0ZDA5N2Y0NTQzYjQxYTZjZmQ2IiwiaWF0IjoxNjQ2MzAxMDY5fQ.BxOjoXNzUwoLRM32A605nZrIubTdELX1pTosB-rGy-A

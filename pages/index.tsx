@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Layout } from "../components/core/layout/layout";
 import { Card } from "../components/pages/card/card";
 import { Grid } from "../components/pages/grid/grid";
+import { setup } from "../data/tasks.install";
 
 const Home: NextPage = () => {
   const cards = [
