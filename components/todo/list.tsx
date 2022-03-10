@@ -2,13 +2,11 @@
 import { Add } from "./add";
 import { Task } from "./task";
 import * as api from "../../services/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TaskI } from "../../interfaces/task-i";
 
 export function List({ tasks: initialTasks }: { tasks: Array<TaskI> }) {
   const [tasks, setTasks] = useState<Array<TaskI>>(initialTasks);
-
-  // useEffect(() => setTasks(initialTasks), [initialTasks]);
 
   const deleteTask = (task: any) => {
     api

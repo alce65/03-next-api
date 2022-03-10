@@ -30,17 +30,48 @@ export default function Todo({ tasks }: { tasks: Array<TaskI> }) {
  *
  */
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   await dbConnect();
   const tasks = await getAllTasks();
   const modifyData = tasks.map((item) => {
-    return {
+    const result = {
+      ...item._doc,
       id: item._id.toString(),
-      title: item.title,
-      responsible: item.responsible,
-      isCompleted: item.isCompleted,
+      // title: item.title,
+      // responsible: item.responsible,
+      // isCompleted: item.isCompleted,
     };
+    delete result._id;
+    delete result.__v;
+    return result;
   });
+  console.log({ modifyData });
+  return {
+    props: {
+      tasks: modifyData,
+    },
+    revalidate: 1
+  };
+}
+ */
+
+export async function getServerSideProps() {
+  await dbConnect();
+  const tasks = await getAllTasks();
+  const modifyData = tasks.map((item) => {
+    const result = {
+      ...item._doc,
+      id: item._id.toString(),
+      // title: item.title,
+      // responsible: item.responsible,
+      // isCompleted: item.isCompleted,
+    };
+    delete result._id;
+    delete result.__v;
+    return result;
+  });
+  console.log({ modifyData });
+  // console.log({ context });
   return {
     props: {
       tasks: modifyData,
